@@ -14,7 +14,7 @@
   - [Inputs/Outputs and Flow](#inputsoutputs-and-flow)
   - [Sections](#sections)
     - [Proposing](#proposing)
-    - [Orchestrating](#orchestrating)
+    - [Consenting](#consenting)
     - [Broadcasting](#broadcasting)
     - [Voting](#voting)
     - [Transacting Consensus Requests](#transacting-consensus-requests)
@@ -127,7 +127,7 @@ Processing is a composition of
 
 ![junction-example](documentation/media/junction-example.png)
 
-We are calling **Sections** (Modularisation), a meaningful set of Pipelines and Junctions put together.
+We are calling **Section** (Modularisation), a meaningful set of Pipelines and Junctions put together.
 
 # Dolla Consensus (Implementation)
 
@@ -199,12 +199,12 @@ In this [github repository](https://github.com/dolla-consortium/consensus-propos
 
 N.B : This section is not described in the [DFBT Academic Paper](/dbft/DBFT.pdf). It's a Dolla creation.
 
-### Orchestrating
+### Consenting
 
 For the current block in progress
 - Coordinates **Broadcasting** and **Voting** Flows
-- Claims that a Consensus is reached for a block
 - Provides the list of Accepted and Rejected proposals for a block
+- Claims that a Consensus is reached for a block
 
 From the [academic paper](/dbft/DBFT.pdf) cited above, our implementation is based on the following pseudo-imperative-code
 ![dbft-mv_propose](documentation/media/dbft-mv_propose.png)
