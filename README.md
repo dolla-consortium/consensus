@@ -17,7 +17,7 @@
     - [Orchestrating](#orchestrating)
     - [Broadcasting](#broadcasting)
     - [Voting](#voting)
-    - [Transacting Consensus Requests](#transacting)
+    - [Transacting Consensus Requests](#transacting-consensus-requests)
 
 # Consensus Algorithm
 
