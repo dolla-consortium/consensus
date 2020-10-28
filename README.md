@@ -13,7 +13,7 @@
   - [Overview](#overview)
   - [Inputs/Outputs and Flow](#inputsoutputs-and-flow)
   - [Sections](#sections)
-    - [Proposing (Open Source)](#proposing-open-source)
+    - [Proposing](#proposing)
     - [Consenting](#consenting)
     - [Broadcasting](#broadcasting)
     - [Voting](#voting)
@@ -178,7 +178,7 @@ Requests Types
 
 N.B : Currently, Only the proposing section is open source.
 
-### Proposing (Open Source)
+### Proposing
 
 As first part of the consensus flow, "proposing" means :
 - **Receptioning** requests from customers and consortium members
@@ -197,7 +197,7 @@ As first part of the consensus flow, "proposing" means :
 
 N.B : This section is not described in the [DFBT Academic Paper](/dbft/DBFT.pdf). It's a Dolla creation.
 
-> See our specific open source [github repository](https://github.com/dolla-consortium/consensus-proposing) for more information.
+> <img align="center" src="https://via.placeholder.com/30/4CFF33/000000?text=+"> See our specific open source [github repository](https://github.com/dolla-consortium/consensus-proposing) for more information.
 
 ### Consenting
 
@@ -213,7 +213,7 @@ Here are some translations into our own vocabulary
 - **RB_broadcast** (RB Means Reliable Broadcast) is the algorithm used to broadcast Proposals between nodes
 - **bin_propose** is the algorithm used to vote within the consortium
 
-> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
+> <img align="center" src="https://via.placeholder.com/30/f03c15/000000?text=+"> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
 
 ### Broadcasting
 
@@ -224,7 +224,7 @@ For the current block in progress
 - Notify When A Proposal is Delivered
 - Use [zero-copy](https://en.wikipedia.org/wiki/Zero-copy) mechanism
 
-> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
+> <img align="center" src="https://via.placeholder.com/30/f03c15/000000?text=+"> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
 
 ### Voting
 
@@ -238,7 +238,7 @@ From the [academic paper](/dbft/DBFT.pdf) cited above, our implementation is bas
 
 - **BV_broadcast** is the following [Binary-Value Broadcast Primitive](/dbft/binaryBroadcast.pdf)" from  *Achour Mostéfaouil, Hamouma Moumen and Michel Raynal*
 
-> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
+> <img align="center" src="https://via.placeholder.com/30/f03c15/000000?text=+"> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
 
 ### Transacting Consensus Requests
 
@@ -256,4 +256,4 @@ Fold m command [event]
 - The Events produced are appended into the **Consensus Ledger** (Ledger = persisted stream).
 - Each Consensus Sections folds (projects) a specific State Model over these persisted events.
 
-> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) Access Rights Required).
+> <img align="center" src="https://via.placeholder.com/30/f03c15/000000?text=+"> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
