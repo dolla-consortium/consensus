@@ -186,7 +186,7 @@ As first part of the consensus flow, "proposing" means :
   - if the downstream flow is starving with local proposal, the current requests accumulated are packaged into a new Local Proposal.
 - **Detecting Starvation** : Notify the Packaging pipeline when all the local proposals produced have been consumed.
 
-<img align="center" src="https://via.placeholder.com/15/24A712/000000?text=+"> [Proposing section](https://github.com/dolla-consortium/consensus-proposing) is open source.
+<img align="center" src="https://via.placeholder.com/15/24A712/000000?text=+"> [Proposing section](https://github.com/dolla-consortium/consensus-proposing) is ***open source***.<img align="center" src="https://via.placeholder.com/15/24A712/000000?text=+">
 
 In this github repository, you will
 - See concrete implementations and details of A Section
