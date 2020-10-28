@@ -176,9 +176,7 @@ Requests Types
 
 ## Sections
 
-N.B : Currently, Only the proposing section is open source.
-
-### Proposing
+## Proposing
 
 As first part of the consensus flow, "proposing" means :
 - **Receptioning** requests from customers and consortium members
@@ -199,7 +197,7 @@ N.B : This section is not described in the [DFBT Academic Paper](/dbft/DBFT.pdf)
 
 ><img align="center" src="https://via.placeholder.com/30/24A712/000000?text=+">&nbsp;&nbsp;&nbsp;See our specific open source [github repository](https://github.com/dolla-consortium/consensus-proposing) for more information.
 
-### Consenting
+## Consenting
 
 For the current block in progress
 - Coordinates **Broadcasting** and **Voting** Flows
@@ -215,7 +213,7 @@ Here are some translations into our own vocabulary
 
 ><img align="center" src="https://via.placeholder.com/30/A72212/000000?text=+">&nbsp;&nbsp;&nbsp;See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
 
-### Broadcasting
+## Broadcasting
 
 For the current block in progress
 - Submit the next not-already-consumed Local Proposal for being Synced
@@ -226,7 +224,7 @@ For the current block in progress
 
 ><img align="center" src="https://via.placeholder.com/30/A72212/000000?text=+">&nbsp;&nbsp;&nbsp;See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
 
-### Voting
+## Voting
 
 For the current block in progress
 - Handle rounds of voting
@@ -240,7 +238,7 @@ From the [academic paper](/dbft/DBFT.pdf) cited above, our implementation is bas
 
 ><img align="center" src="https://via.placeholder.com/30/A72212/000000?text=+">&nbsp;&nbsp;&nbsp;See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
 
-### Transacting Consensus Requests
+## Transacting Consensus Requests
 
 - **Consensus Requests** are sent from the consortium members themselves. These requests modify the consensus logic :
   - Add/Remove/Grant/Revoke a Member in the Consortium
