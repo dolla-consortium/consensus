@@ -176,7 +176,7 @@ Requests Types
 
 ## Sections
 
-### Proposing
+### <img align="center" src="https://via.placeholder.com/20/00000/000000?text=+"> Proposing <img align="center" src="https://via.placeholder.com/20/00000/000000?text=+">
 
 As first part of the consensus flow, "proposing" means :
 - **Receptioning** requests from customers and consortium members
