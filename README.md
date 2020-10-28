@@ -256,4 +256,4 @@ Fold m command [event]
 - The Events produced are appended into the **Consensus Ledger** (Ledger = persisted stream).
 - Each Consensus Sections folds (projects) a specific State Model over these persisted events.
 
-> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
+> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) Access Rights Required).
