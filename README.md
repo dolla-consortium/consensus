@@ -176,7 +176,7 @@ Requests Types
 
 ## Sections
 
-## Proposing
+### Proposing
 
 As first part of the consensus flow, "proposing" means :
 - **Receptioning** requests from customers and consortium members
@@ -186,7 +186,9 @@ As first part of the consensus flow, "proposing" means :
   - if the downstream flow is starving with local proposal, the current requests accumulated are packaged into a new Local Proposal.
 - **Detecting Starvation** : Notify the Packaging pipeline when all the local proposals produced have been consumed.
 
-[Proposing section](https://github.com/dolla-consortium/consensus-proposing) is open source. In this github repository, you will
+<img align="center" src="https://via.placeholder.com/15/24A712/000000?text=+"> [Proposing section](https://github.com/dolla-consortium/consensus-proposing) is open source.
+
+In this github repository, you will
 - See concrete implementations and details of A Section
 - Be able to :
   - Set Up your environment
@@ -195,9 +197,9 @@ As first part of the consensus flow, "proposing" means :
 
 N.B : This section is not described in the [DFBT Academic Paper](/dbft/DBFT.pdf). It's a Dolla creation.
 
-<img align="center" src="https://via.placeholder.com/20/24A712/000000?text=+">&nbsp;&nbsp;&nbsp;See our specific open source [github repository](https://github.com/dolla-consortium/consensus-proposing) for more information.
+> See our specific open source [github repository](https://github.com/dolla-consortium/consensus-proposing) for more information.
 
-## Consenting
+### Consenting
 
 For the current block in progress
 - Coordinates **Broadcasting** and **Voting** Flows
@@ -211,7 +213,7 @@ Here are some translations into our own vocabulary
 - **RB_broadcast** (RB Means Reliable Broadcast) is the algorithm used to broadcast Proposals between nodes
 - **bin_propose** is the algorithm used to vote within the consortium
 
-<img align="center" src="https://via.placeholder.com/20/A72212/000000?text=+">&nbsp;&nbsp;&nbsp;See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
+> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
 
 ## Broadcasting
 
@@ -222,7 +224,7 @@ For the current block in progress
 - Notify When A Proposal is Delivered
 - Use [zero-copy](https://en.wikipedia.org/wiki/Zero-copy) mechanism
 
-<img align="center" src="https://via.placeholder.com/20/A72212/000000?text=+">&nbsp;&nbsp;&nbsp;See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
+> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
 
 ## Voting
 
@@ -236,7 +238,7 @@ From the [academic paper](/dbft/DBFT.pdf) cited above, our implementation is bas
 
 - **BV_broadcast** is the following [Binary-Value Broadcast Primitive](/dbft/binaryBroadcast.pdf)" from  *Achour Mostéfaouil, Hamouma Moumen and Michel Raynal*
 
-<img align="center" src="https://via.placeholder.com/20/A72212/000000?text=+">&nbsp;&nbsp;&nbsp;See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
+> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
 
 ## Transacting Consensus Requests
 
@@ -254,4 +256,4 @@ Fold m command [event]
 - The Events produced are appended into the **Consensus Ledger** (Ledger = persisted stream).
 - Each Consensus Sections folds (projects) a specific State Model over these persisted events.
 
-<img align="center" src="https://via.placeholder.com/20/A72212/000000?text=+">&nbsp;&nbsp;&nbsp;See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
+> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information (Access Rights Required).
