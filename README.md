@@ -176,7 +176,7 @@ Requests Types
 
 ## Sections
 
-### <img align="center" src="https://via.placeholder.com/20/00000/000000?text=+"> Proposing <img align="center" src="https://via.placeholder.com/20/00000/000000?text=+">
+## Proposing
 
 As first part of the consensus flow, "proposing" means :
 - **Receptioning** requests from customers and consortium members
@@ -199,7 +199,7 @@ N.B : This section is not described in the [DFBT Academic Paper](/dbft/DBFT.pdf)
 
 > See our specific open source [github repository](https://github.com/dolla-consortium/consensus-proposing) for more information.
 
-### Consenting
+## Consenting
 
 For the current block in progress
 - Coordinates **Broadcasting** and **Voting** Flows
