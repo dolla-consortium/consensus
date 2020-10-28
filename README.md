@@ -13,7 +13,7 @@
   - [Overview](#overview)
   - [Inputs/Outputs and Flow](#inputsoutputs-and-flow)
   - [Sections](#sections)
-    - [Proposing](#proposing)
+    - [Proposing (Open Source)](#proposing-open-source)
     - [Consenting](#consenting)
     - [Broadcasting](#broadcasting)
     - [Voting](#voting)
@@ -178,17 +178,17 @@ Requests Types
 
 N.B : Currently, Only the proposing section is open source.
 
-### Proposing
+### Proposing (Open Source)
 
 As first part of the consensus flow, "proposing" means :
-- **Receptioning** requests from customer and consortium members
+- **Receptioning** requests from customers and consortium members
 - **Packaging** these requests into local proposals respecting the following properties
-  - Proposal are non Empty
+  - Proposals are non Empty
   - Proposal File Size < Proposal File Size Limit
   - if the downstream flow is starving with local proposal, the current requests accumulated are packaged into a new Local Proposal.
 - **Detecting Starvation** : Notify the Packaging pipeline when all the local proposals produced have been consumed.
 
-[Proposing section](https://github.com/dolla-consortium/consensus-proposing) is open source.
+> [Proposing section](https://github.com/dolla-consortium/consensus-proposing) is open source.
 
 In this [github repository](https://github.com/dolla-consortium/consensus-proposing), you will
 - See concrete implementations and details of A Section
@@ -198,6 +198,8 @@ In this [github repository](https://github.com/dolla-consortium/consensus-propos
   - Build & Run A Simulated Consensus Proposing (only Mac Osx)
 
 N.B : This section is not described in the [DFBT Academic Paper](/dbft/DBFT.pdf). It's a Dolla creation.
+
+> See our specific [github repository](https://github.com/dolla-consortium/consensus-proposing) for more information.
 
 ### Consenting
 
@@ -213,7 +215,7 @@ Here are some translations into our own vocabulary
 - **RB_broadcast** (RB Means Reliable Broadcast) is the algorithm used to broadcast Proposals between nodes
 - **bin_propose** is the algorithm used to vote within the consortium
 
-See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information.
+> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information.
 
 ### Broadcasting
 
@@ -224,7 +226,7 @@ For the current block in progress
 - Notify When A Proposal is Delivered
 - Use [zero-copy](https://en.wikipedia.org/wiki/Zero-copy) mechanism
 
-See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information.
+> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information.
 
 ### Voting
 
@@ -238,7 +240,7 @@ From the [academic paper](/dbft/DBFT.pdf) cited above, our implementation is bas
 
 - **BV_broadcast** is the following [Binary-Value Broadcast Primitive](/dbft/binaryBroadcast.pdf)" from  *Achour Mostéfaouil, Hamouma Moumen and Michel Raynal*
 
-See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information.
+> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information.
 
 ### Transacting Consensus Requests
 
@@ -256,4 +258,4 @@ Fold m command [event]
 - The Events produced are appended into the **Consensus Ledger** (Ledger = persisted stream).
 - Each Consensus Sections folds (projects) a specific State Model over these persisted events.
 
-See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information.
+> See our specific [github repository](https://github.com/dolla-consortium/consensus-other-sections) for more information.
