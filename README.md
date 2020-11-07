@@ -1,5 +1,6 @@
 # Consensus
 
+- [Project Actors](#project-actors)
 - [Consensus Algorithm](#consensus-algorithm)
 - [Business Goals](#business-goals)
 - [Technical choices](#technical-choices)
@@ -18,6 +19,16 @@
     - [Broadcasting](#broadcasting)
     - [Voting](#voting)
     - [Transacting Consensus Requests](#transacting-consensus-requests)
+
+# Project Actors
+
+This project is
+- Owned by [Dolla](http://dolla.org)
+- Under the technical responsibility of [Nicolas Henin](https://www.linkedin.com/in/nhenin/) ([Eventuria](https://github.com/eventuria))
+
+A special note for [ComposeWell](https://github.com/composewell) (Founder Harendra Kumar) and our heavy use of their [Streamly](https://github.com/composewell/streamly) Library.
+
+Thanks for their support,collaboration and professionalism !
 
 # Consensus Algorithm
 
