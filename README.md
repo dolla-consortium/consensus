@@ -37,7 +37,7 @@ The Dolla consensus is an implementation of the ***Democratic Byzantine Fault To
 It has been described by *Tyler Crain, Vincent Gramoli, Mikel Larrea and Michel Raynal* in the following [academic paper](/dbft/DBFT.pdf)
 
 Algorithm essential characteristics and claims from this paper
-- Applicable in semi-open blockchain (consortium blockchain), not open ones.
+- Applicable in semi-open blockchain (consortium blockchain)
 - **Transaction finality**, Once the consortium reaches a consensus, the decision is not reversible.
 - **Energy efficiency**, DBFT can achieve a distributed consensus without carrying out complex mathematical computations (like in PoW)
 - **Low reward variance**, Every node in the network takes part in responding to the request by the client and hence every node can be incentivized leading to low variance in rewarding the nodes that help in decision making. The fee distribution model can be completely decided at the consortium governance level.
@@ -56,7 +56,7 @@ Following academic paper recommendations, we have also implemented
 
 # Business Goals
 
-The primary consensus use case is to support high transactional volumes and latencies competing the financial market leaders (Mastercard,Visa ...)
+The primary consensus objective is to support high transactional volumes and latencies competing the financial market leaders (Mastercard,Visa ...)
 - 10k transactions /s
 - Transactions < 5 s
 - Security
@@ -75,15 +75,15 @@ Seeking Simplicity and High Performance, We are translating these business goals
 - SEDA Architecture ( [CQRS](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs)/ [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)/ [Microservices](https://en.wikipedia.org/wiki/Microservices))
 - Functional Reactive Programming Paradigm : Streams and Logs (FIFO) are natural DDDD Architecture Building Blocks.
 
-All these concepts are building blocks for implementing the [Kahn process networks (KPNs, or process networks)](https://en.wikipedia.org/wiki/Kahn_process_networks). They are a concurrent [model of computation](https://en.wikipedia.org/wiki/Model_of_computation) which can be also considered as a Pattern / Architecture for distributed systems.
+All these concepts are building blocks for implementing the [Kahn process networks (KPNs, or process networks)](https://en.wikipedia.org/wiki/Kahn_process_networks), A concurrent [model of computation](https://en.wikipedia.org/wiki/Model_of_computation) used as a Pattern / Architecture for distributed systems.
 
 ## High Level Technological Stack
 - FP : Haskell ecosystem
 - FRP
   - Multi/Mono threading Streaming : [Streamly](https://github.com/composewell/streamly) Haskell Library by [ComposeWell](https://github.com/composewell) - (CEO - [Harandra Kumar](https://confengine.com/user/harendra-kumar))
   - Persistent Streaming Data Management
-    - [EventStore](https://eventstore.com/) (Event Sourcing Database) for Proof of concept
-    - [Apache Cassandra](https://en.wikipedia.org/wiki/Apache_Cassandra) and [Apache Kafka](https://kafka.apache.org/) for Better Scaling when necessary
+    - Proof of concept/design : [EventStore](https://eventstore.com/) (Event Sourcing Database) for Proof of concept
+    - Production : [Apache Cassandra](https://en.wikipedia.org/wiki/Apache_Cassandra) and [Apache Kafka](https://kafka.apache.org/) for Better Scaling when necessary
 
 ## Relevant Literature backing our engineering choices
 - [Domain-Driven Design: Tackling Complexity in the Heart of Software](https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/)
@@ -102,6 +102,7 @@ This architecture is
   - Maximizing Determinism Over Non Determinism (see Pipeline vs Junctions)
   - Declarative Design
   - Composability/Modularity
+  - Transformation over Data (FP) **vs** Data over Transformation (OOP)
   - ...
 
 The system can be seen and understood through 2 dimensions
@@ -126,7 +127,10 @@ Data is Pulled over Pushed (see [here](https://blog.call-cc.be/post/streamcompar
 Processing is a composition of
 - **Pipelines** (function composition)
   - a persisted input stream
-  - a composition of **deterministic** *stream processing*
+  - a line of pipes welded together
+    - sourcing inputs
+    - a composition of **deterministic** *Pipes*
+    - sinking outputs
   - a persisted output stream
 
 ![pipeline-example](documentation/media/pipeline-example.png)
@@ -160,14 +164,14 @@ Fold m command [event]
 ```
 - We are Recording the meaningful facts happening in the system.
 - We store the transitions (events) of the `Fold` state-machine instead the final state.
-- We are recreating the state-machine from a subset of the events previously stored. (Projection)
+- We are recreating a state-machine from an event subset previously stored (Projection).
 
 Data Flow
-- Packaged into Files called Local Proposal
-- Broadcasted to other nodes via Proposals
-- Voted : Accepted/Rejected uniformly by each node.
-- Transacted/Executed (Folded) : ``` command -> [event]```
-- Appended : Events Produced by the execution are appended into logs (Event Sourcing)
+- Stage requests collected into files called Local Proposals
+- Broadcast proposals to other nodes
+- Vote each proposal will be transacted or not
+- Transact proposal requests accepted : ``` request/command -> [event]```
+- Append events into consortium ledgers
 
 Requests Types
 
@@ -175,7 +179,6 @@ Requests Types
   - Can be any request from the business layer using the consensus platform.
   - The Consensus is agnostic of these requests. The behavior is polymorphic.
   - The Fold logic is not part of the consensus, it's external.
-  - The Consensus does not have correlation with Customer Events
 
 - **Consensus Request**
   - Sent from the consortium members themselves.
@@ -183,7 +186,7 @@ Requests Types
     - Add/Remove/Grant/Revoke a Member in the Consortium
     - Update the version of the consensus running
     - etc...
-  - Each Consensus Sections folds a specific logic over the consensus events appended into the **Consensus Ledger** (Ledger = persisted stream).
+  - Each Consensus Sections folds/projects a specific logic over the consensus events appended into the **Consensus Ledger** (Ledger = persisted stream).
 
 ## Sections
 
@@ -191,13 +194,12 @@ Requests Types
 
 As first part of the consensus flow, "proposing" means :
 - **Receptioning** requests from customers and consortium members
-- **Packaging** these requests into local proposals respecting the following properties
-  - Proposals are non Empty
-  - Proposal File Size < Proposal File Size Limit
-  - if the downstream flow is starving with local proposal, the current requests accumulated are packaged into a new Local Proposal.
-- **Detecting Starvation** : Notify the Packaging pipeline when all the local proposals produced have been consumed.
+- **Detecting** if the local proposal flow is tensed, meaning if the consensus has consumed more local proposals than being staged.
+- **Staging** these requests into local proposals respecting the following properties
+  - `0 < Proposal File Size < Proposal File Size Limit`
+  - if the downstream flow is starving with local proposal, the current requests accumulated are staged into a new Local Proposal.
 
-<img align="center" src="https://via.placeholder.com/15/24A712/000000?text=+"> [Proposing section](https://github.com/dolla-consortium/consensus-proposing) is ***open source*** <img align="center" src="https://via.placeholder.com/15/24A712/000000?text=+">
+  <img align="center" src="https://via.placeholder.com/15/24A712/000000?text=+"> [Proposing section](https://github.com/dolla-consortium/consensus-proposing) is ***open source*** <img align="center" src="https://via.placeholder.com/15/24A712/000000?text=+">
 
 In this github repository, you will
 - See concrete implementations and details of A Section
