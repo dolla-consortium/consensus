@@ -80,7 +80,7 @@ All these concepts are building blocks for implementing the [Kahn process networ
 ## High Level Technological Stack
 - FP : Haskell ecosystem
 - FRP
-  - Multi/Mono threading Streaming : [Streamly](https://github.com/composewell/streamly) Haskell Library by [ComposeWell](https://github.com/composewell) - (CEO - [Harandra Kumar](https://confengine.com/user/harendra-kumar))
+  - Multi/Mono threading Streaming : [Streamly](https://github.com/composewell/streamly) Haskell Library by [ComposeWell](https://github.com/composewell) - (CEO - [Harendra Kumar](https://confengine.com/user/harendra-kumar))
   - Persistent Streaming Data Management
     - Proof of concept/design : [EventStore](https://eventstore.com/) (Event Sourcing Database) for Proof of concept
     - Production : [Apache Cassandra](https://en.wikipedia.org/wiki/Apache_Cassandra) and [Apache Kafka](https://kafka.apache.org/) for Better Scaling when necessary
